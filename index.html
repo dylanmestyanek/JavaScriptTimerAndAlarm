@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Detection</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+
+<body>
+    <div class="timerContainer">
+      <!-- Timer Navigation Bar  -->
+        <div class="timerControls">
+          <button data-time="20" class="timerButton">20 Secs</button>
+          <button data-time="300" class="timerButton">Work 5</button>
+          <button data-time="900" class="timerButton">Quick 15</button>
+          <button data-time="1200" class="timerButton">Snack 20</button>
+          <button data-time="3600" class="timerButton">Lunch Break</button>
+          <button class="voiceRecognitionButton"><p>Voice Control</p></button>
+          <form name="customTimeForm" id="custom">
+            <input type="text" name="minutes" placeholder="Enter Minutes">
+          </form>
+        </div>
+      <!-- Closes Timer Navigation Bar -->
+    
+      <!-- Timer Text Coundown, Time to return from break, and Pause/Stop Buttons -->
+        <div class="displayTimeContainer">
+          <h1 class="displayTimeLeft"></h1>
+          <p class="displayEndTime"></p>
+          <!-- Pause/Stop Buttons Container -->
+            <div class="buttonContainer">
+              <button class="timerModifiers"> Pause </button>
+              <button class="timerModifiers"> Stop </button>
+            </div> 
+          <!-- Closes .buttonContainer -->
+        </div> 
+      <!-- Closes .displayTimeContainer -->
+    </div> 
+  <!-- Closes .timerContainer -->
+  <script src="index.js"></script>
+</body>
+</html>
