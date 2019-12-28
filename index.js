@@ -67,6 +67,8 @@ function customTime(e){
 
 // Pause/Stop button functionality
 function adjustTimer(e){
+    let timeLeft;
+
     // If 'Stop' button is pressed, clear timer, timer displays, and hide Pause/Stop buttons
     if (this.textContent == ' Stop ') {
         clearInterval(countdown);
@@ -77,6 +79,19 @@ function adjustTimer(e){
 
     if (this.textContent == ' Pause ') {
         clearInterval(countdown);
+
+        timeLeft = timerDisplay.textContent;
+
+        console.log(timerDisplay.textContent);
+
+        // timerDisplay.textContent = '';
+        // endTimeDisplay.textContent = '';
+        // timerModifierButtons.forEach(button => button.style.display = 'none');
+    }
+
+    if (this.textContent == ' Play ') {
+        timer(timeLeft);
+        console.log(timeLeft)
         // timerDisplay.textContent = '';
         // endTimeDisplay.textContent = '';
         // timerModifierButtons.forEach(button => button.style.display = 'none');
