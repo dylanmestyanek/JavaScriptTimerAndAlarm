@@ -74,6 +74,13 @@ function adjustTimer(e){
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
     }
+
+    if (this.textContent == ' Pause ') {
+        clearInterval(countdown);
+        // timerDisplay.textContent = '';
+        // endTimeDisplay.textContent = '';
+        // timerModifierButtons.forEach(button => button.style.display = 'none');
+    }
 }
 
 timerModifierButtons.forEach(button => button.addEventListener('click', adjustTimer)); // Gives Pause/Stop button 'Click' functionality
@@ -100,8 +107,8 @@ recognition.addEventListener('result', e => {
         let lastWordSpoken = transcript.split(' ')[transcript.split(' ').length - 1];
         let timeValueSpokenInMic = transcript.split('').filter(letter => (/\d/).test(letter)).join('');
 
-        lastWordSpoken == 'minutes' && timer(timeValueSpokenInMic * 60);
-        lastWordSpoken == 'seconds' && timer(timeValueSpokenInMic);
+        lastWordSpoken === 'minutes' && timer(timeValueSpokenInMic * 60);
+        lastWordSpoken === 'seconds' && timer(timeValueSpokenInMic);
     }
 });
     
