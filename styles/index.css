@@ -26,6 +26,7 @@ input {
   color: white;
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
   white-space: pre-line;
+  transition: all .3s;
 }
 
 .timerContainer {
@@ -88,4 +89,14 @@ input {
 .displayEndTime {
   font-size: 4rem;
   color: white;
+}
+
+.paused {
+  opacity: .4;
+  transition: all .3s;
+  color: red;
+}
+
+.redText {
+  opacity: .7
 }
