@@ -1,8 +1,6 @@
 html { 
   box-sizing: border-box;
   font-size: 10px;
-  background: #8E24AA;
-  background: linear-gradient(45deg,  #42a5f5 0%,#478ed1 50%,#0d47a1 100%);
 }
 
 *, *:before, *:after {
@@ -65,7 +63,7 @@ input {
   color: white;
   font-size: 2rem;
   text-transform: uppercase;
-  background: rgba(0,0,0,0.1);
+  background: #32afa9;
   border-bottom: 3px solid rgba(0,0,0,0.2);
   border-right: 1px solid rgba(0,0,0,0.2);
   padding: 1rem;
@@ -76,13 +74,29 @@ input {
   display: none;
 }
 
+.pause:focus {
+  background: #e7f0c3;
+  outline: 0;
+} 
+
+.play:focus {
+  background: #b2dffb;
+  outline: 0;
+}
+
+.stop:focus {
+  background: #eb4d55;
+  outline: 0;
+} 
+
 .timerButton:hover,
 .timerButton:focus {
-  background: rgba(0,0,0,0.2);
+  background: #8bbabb;
   outline: 0;
 }
 
 .displayTimeContainer {
+  background: #a4d4ae;
   display: flex;
   width: 80%;
   flex-direction: column;
