@@ -62,31 +62,38 @@ input {
   cursor: pointer;
   color: white;
   font-size: 2rem;
-  text-transform: uppercase;
   background: #32afa9;
   border-bottom: 3px solid rgba(0,0,0,0.2);
   border-right: 1px solid rgba(0,0,0,0.2);
   padding: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .timerModifiers {
   display: none;
+  width: 100px;
+  margin: 0 4px;
 }
 
-.pause:focus {
-  background: #e7f0c3;
+.timerModifiers:focus,
+.timerModifiers:hover {
   outline: 0;
+  transition: .3s;
+}
+
+.pause:focus,
+.pause:hover {
+  background: #e7f0c3;
 } 
 
-.play:focus {
+.play:focus,
+.play:hover {
   background: #b2dffb;
-  outline: 0;
 }
 
-.stop:focus {
+.stop:focus,
+.stop:hover {
   background: #eb4d55;
-  outline: 0;
 } 
 
 .timerButton:hover,
@@ -107,6 +114,7 @@ input {
 .displayEndTime {
   font-size: 4rem;
   color: white;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
 }
 
 .paused {

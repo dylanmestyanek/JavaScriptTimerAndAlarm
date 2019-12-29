@@ -49,7 +49,7 @@ function displayEndTime(timestamp){
     const end = new Date(timestamp);
     const hour = end.getHours();
     const minutes = end.getMinutes();
-    endTimeDisplay.textContent = `Be Back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes}`;
+    endTimeDisplay.textContent = `Arrive back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes} ${hour > 12 ? "PM" : "AM"}.`;
 }
 
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
