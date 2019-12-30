@@ -105,7 +105,7 @@ input {
 .displayTimeContainer {
   background: #a4d4ae;
   display: flex;
-  width: 80%;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
