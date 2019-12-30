@@ -38,6 +38,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 15%;
+  min-width: 100px;
   height: 100vh;
 }
 
@@ -46,14 +47,18 @@ input {
 }
 
 .timerControls form {
-  flex: 1;
   display: flex;
 }
 
 .timerControls input {
   flex: 1;
   border: 0;
-  padding: 2rem;
+  height: 40px;
+  width: 100%;
+  margin-top: 5%;
+  font-size: 1.8rem;
+  text-align: center;
+  outline: 0;
 }
 
 .timerButton, .timerModifiers, .voiceRecognitionButton {
@@ -67,6 +72,8 @@ input {
   border-right: 1px solid rgba(0,0,0,0.2);
   padding: 1rem;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
+  outline: 0;
 }
 
 .timerModifiers {
