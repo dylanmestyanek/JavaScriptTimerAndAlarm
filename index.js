@@ -61,8 +61,16 @@ function runButton(e){
 // Takes in custom time duration within input field
 function customTime(e){
     e.preventDefault();
-    const timeValue = this.minutes.value * 60;
-    timer(timeValue);
+
+    if (Number.isInteger(+this.minutes.value)) {
+        const timeValue = this.minutes.value * 60;
+        timer(timeValue);
+    } else {
+        clearInterval(countdown);
+        timerDisplay.textContent = '';
+        timerModifierButtons.forEach(button => button.style.display = 'none');
+        endTimeDisplay.textContent = "Please input a valid time value."
+    }
 }
 
 let timeLeft;
