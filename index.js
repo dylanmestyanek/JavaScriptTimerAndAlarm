@@ -82,6 +82,7 @@ function adjustTimer(e){
         clearInterval(countdown);
         timeLeft = timerDisplay.textContent;
         timerDisplay.classList.add("paused");
+        endTimeDisplay.textContent = `The timer is currently paused...`;
     }
 
     if (this.textContent == ' Play ') {
@@ -89,6 +90,7 @@ function adjustTimer(e){
         const splitTime = timeLeft.split(":");
         const resumeTime = +(splitTime[0] * 60) + +splitTime[1];
         timer(resumeTime);
+        endTimeDisplay.textContent = `Arrive back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes} ${hour > 12 ? "PM" : "AM"}.`;
     }
 }
 
