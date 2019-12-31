@@ -37,8 +37,6 @@ function displayTimeLeft(seconds){
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
     const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`
-    const today = new Date();
-    const currentTime = `${today.getHours() - 12}:${today.getMinutes()}` 
 
     timerDisplay.textContent = display;
     document.title = display;
@@ -84,19 +82,22 @@ function adjustTimer(e){
         timerDisplay.textContent = '';
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
+        document.title = 'Voice Recognition Timer';
     }
 
     if (this.textContent == ' Pause ') {
         clearInterval(countdown);
         timeLeft = timerDisplay.textContent;
+
         timerDisplay.classList.add("paused");
         endTimeDisplay.textContent = `The timer is currently paused...`;
+        document.title = `${timeLeft} (Paused)`;
     }
 
     if (this.textContent == ' Play ') {
-        timerDisplay.classList.remove("paused");
         const splitTime = timeLeft.split(":");
         const resumeTime = +(splitTime[0] * 60) + +splitTime[1];
+        timerDisplay.classList.remove("paused");
         timer(resumeTime);
         endTimeDisplay.textContent = `Arrive back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes} ${hour > 12 ? "PM" : "AM"}.`;
     }
