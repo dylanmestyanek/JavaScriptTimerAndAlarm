@@ -124,10 +124,19 @@ recognition.addEventListener('result', e => {
     
     if (youreDoneSpeaking && (transcript.includes("set a timer for") || transcript.includes("set timer for"))){
         let lastWordSpoken = transcript.split(' ')[transcript.split(' ').length - 1];
-        let timeValueSpokenInMic = transcript.split('').filter(letter => (/\d/).test(letter)).join('');
-
-        lastWordSpoken === 'minutes' && timer(timeValueSpokenInMic * 60);
-        lastWordSpoken === 'seconds' && timer(timeValueSpokenInMic);
+        let timeValues = transcript.split(' ').filter(value => Number.isInteger(+value));
+        
+        // If the user speaks more than one number value, such as, 2 minutes AND 30 seconds, 
+        // then do math to convert all values into a total of seconds for timer
+        if (timeValues.length > 1) {
+            let valueInSeconds = (+timeValues[0] * 60) + +timeValues[1];
+            timer(valueInSeconds);
+        } else {
+            let timeValueSpokenInMic = transcript.split('').filter(letter => (/\d/).test(letter)).join('');
+    
+            lastWordSpoken === 'minutes' && timer(timeValueSpokenInMic * 60);
+            lastWordSpoken === 'seconds' && timer(timeValueSpokenInMic);
+        }
     }
 });
     
