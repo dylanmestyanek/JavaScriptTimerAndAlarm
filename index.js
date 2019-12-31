@@ -53,6 +53,8 @@ function displayEndTime(timestamp){
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
 function runButton(e){
     const timeValue = e.target.dataset.time;
+    
+    timerDisplay.classList.remove("paused");
     timer(timeValue);
 }
 
