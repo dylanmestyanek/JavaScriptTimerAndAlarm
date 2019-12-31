@@ -139,7 +139,7 @@ recognition.addEventListener('result', e => {
                 timer(valueInSeconds);
             } else if ((/second/i).test(timeFormat[2]) && (/minute/i).test(timeFormat[3])) {
                 let valueInSeconds = (+timeValues[1] * 60) + +timeValues[0];
-                timer(valueInSeconds);``
+                timer(valueInSeconds);
             } else if ((/second/i).test(timeFormat[2]) && (/second/i).test(timeFormat[3])) {
                 let valueInSeconds = +timeValues[1] + +timeValues[0];
                 timer(valueInSeconds);
@@ -160,6 +160,8 @@ recognition.addEventListener('result', e => {
 // When 'Voice Recognition' button is clicked - Clear timer and timer display - Display "listening..." notification - Begin listening to user
 document.querySelector(".voiceRecognitionButton").onclick = () => {
     clearInterval(countdown);
+    clearTimeout(errorMessage);
+    timerModifierButtons.forEach(button => button.style.display = 'none');
     endTimeDisplay.textContent = '';
     timerDisplay.textContent = 'Listening for time duration...'
     timerDisplay.style.fontSize = '60px';
