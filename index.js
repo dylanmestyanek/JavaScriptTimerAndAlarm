@@ -129,13 +129,30 @@ recognition.addEventListener('result', e => {
         // If the user speaks more than one number value, such as, 2 minutes AND 30 seconds, 
         // then do math to convert all values into a total of seconds for timer
         if (timeValues.length > 1) {
-            let valueInSeconds = (+timeValues[0] * 60) + +timeValues[1];
-            timer(valueInSeconds);
+            let stringValues = transcript.split(' ').filter(value =>  (/minute/i).test(value) || (/second/i).test(value));
+            let timeFormat = [...timeValues, ...stringValues]
+
+            console.log((/minute/i).test(timeFormat[2]))
+
+            if ((/minute/i).test(timeFormat[2]) && (/second/i).test(timeFormat[3])) {
+                let valueInSeconds = (+timeFormat[0] * 60) + +timeFormat[1];
+                timer(valueInSeconds);
+            } else if ((/second/i).test(timeFormat[2]) && (/minute/i).test(timeFormat[3])) {
+                let valueInSeconds = (+timeValues[1] * 60) + +timeValues[0];
+                timer(valueInSeconds);``
+            } else if ((/second/i).test(timeFormat[2]) && (/second/i).test(timeFormat[3])) {
+                let valueInSeconds = +timeValues[1] + +timeValues[0];
+                timer(valueInSeconds);
+            } else if ((/minute/i).test(timeFormat[2]) && (/minute/i).test(timeFormat[3])) {
+                let valueInSeconds = (+timeValues[1] * 60) + (+timeValues[0] * 60);
+                timer(valueInSeconds);
+            }
+
         } else {
             let timeValueSpokenInMic = transcript.split('').filter(letter => (/\d/).test(letter)).join('');
     
-            lastWordSpoken === 'minutes' && timer(timeValueSpokenInMic * 60);
-            lastWordSpoken === 'seconds' && timer(timeValueSpokenInMic);
+            (/minute/i).test(lastWordSpoken) && timer(timeValueSpokenInMic * 60);
+            (/second/i).test(lastWordSpoken) && timer(timeValueSpokenInMic);
         }
     }
 });
