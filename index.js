@@ -36,7 +36,7 @@ function timer(seconds){
 function displayTimeLeft(seconds){
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
-    const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`
+    const display = `${minutes < 10 ? '0' : ''}${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`
 
     timerDisplay.textContent = display;
     document.title = display;
@@ -53,7 +53,7 @@ function displayEndTime(timestamp){
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
 function runButton(e){
     const timeValue = e.target.dataset.time;
-    
+
     timerDisplay.classList.remove("paused");
     timer(timeValue);
 }
@@ -165,11 +165,15 @@ document.querySelector(".voiceRecognitionButton").onclick = () => {
     clearInterval(countdown);
     timerModifierButtons.forEach(button => button.style.display = 'none');
     endTimeDisplay.textContent = '';
-    timerDisplay.textContent = 'Listening for time duration...'
+    timerDisplay.textContent = 'Listening for a time duration...'
     timerDisplay.style.fontSize = '60px';
+    document.title = 'Listening...'
 
     recognition.start();
     // If voice recognition duration expires, display error message
-    errorMessage = setTimeout(() => (timerDisplay.textContent = "Woops! \r\n You waited too long to speak. \r\n Click 'Voice Control' to restart."), 8000);
+    errorMessage = setTimeout(() => {
+        timerDisplay.textContent = "Woops! \r\n You waited too long to speak. \r\n Click 'Voice Control' to restart.";
+        document.title = "Voice Recognition Failed"
+    }, 8000);
 };
 
