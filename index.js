@@ -160,7 +160,6 @@ recognition.addEventListener('result', e => {
 // When 'Voice Recognition' button is clicked - Clear timer and timer display - Display "listening..." notification - Begin listening to user
 document.querySelector(".voiceRecognitionButton").onclick = () => {
     clearInterval(countdown);
-    clearTimeout(errorMessage);
     timerModifierButtons.forEach(button => button.style.display = 'none');
     endTimeDisplay.textContent = '';
     timerDisplay.textContent = 'Listening for time duration...'
