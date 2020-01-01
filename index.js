@@ -34,7 +34,8 @@ function timer(seconds){
 
             timerExpired = setInterval(() => {
                 timerSound.play();
-            }, 1000);            
+                timerDisplay.classList.toggle('paused');
+            }, 600);            
             return;
         };
         displayTimeLeft(secondsLeft);
@@ -91,6 +92,8 @@ function adjustTimer(e){
         timerDisplay.classList.remove("paused");
         clearInterval(countdown);
         clearInterval(timerExpired);
+        timerSound.pause();
+        timerSound.currentTime = 0;
         timerDisplay.textContent = '';
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');

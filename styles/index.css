@@ -126,10 +126,5 @@ input {
 
 .paused {
   opacity: .4;
-  transition: all .3s;
   color: red;
-}
-
-.redText {
-  opacity: .7
 }
