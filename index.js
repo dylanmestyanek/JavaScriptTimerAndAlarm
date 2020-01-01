@@ -24,7 +24,10 @@ function timer(seconds){
     countdown = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         if (secondsLeft < 0) {
-            clearInterval(countdown); 
+            clearInterval(countdown);
+            timerDisplay.textContent = 'Time\'s Up!';
+            endTimeDisplay.textContent = "";
+            timerModifierButtons.forEach(button => button.style.display = 'none');
             return;
         };
         displayTimeLeft(secondsLeft);
