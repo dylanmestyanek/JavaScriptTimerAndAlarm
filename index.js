@@ -63,6 +63,7 @@ function displayEndTime(timestamp){
 
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
 function runButton(e){
+    endTimer();
     const timeValue = e.target.dataset.time;
     timerDisplay.classList.remove("paused");
     timer(timeValue);
@@ -71,6 +72,8 @@ function runButton(e){
 // Takes in custom time duration within input field
 function customTime(e){
     e.preventDefault();
+    endTimer();
+    timerDisplay.classList.remove("paused");
 
     if (Number.isInteger(+this.minutes.value)) {
         const timeValue = this.minutes.value * 60;
@@ -89,11 +92,9 @@ let timeLeft;
 function adjustTimer(e){
     // If 'Stop' button is pressed, clear timer, timer displays, and hide Pause/Stop buttons
     if (this.textContent == ' Stop ') {
-        timerDisplay.classList.remove("paused");
+        endTimer();
         clearInterval(countdown);
-        clearInterval(timerExpired);
-        timerSound.pause();
-        timerSound.currentTime = 0;
+        timerDisplay.classList.remove("paused");
         timerDisplay.textContent = '';
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
@@ -117,6 +118,12 @@ function adjustTimer(e){
         endTimeDisplay.textContent = `Arrive back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes} ${hour > 12 ? "PM" : "AM"}.`;
     }
 }
+
+function endTimer(){
+    clearInterval(timerExpired);
+    timerSound.pause();
+    timerSound.currentTime = 0;
+};
 
 timerModifierButtons.forEach(button => button.addEventListener('click', adjustTimer)); // Gives Pause/Stop button 'Click' functionality
 timerButtons.forEach(button => button.addEventListener('click', runButton)); // Gives preset value buttons 'Click' functionality
