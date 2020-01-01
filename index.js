@@ -1,4 +1,5 @@
 let countdown; 
+let timerExpired;
 let errorMessage; // Error message when you've waited too long to speak for voice recognition
 const timerDisplay = document.querySelector('.displayTimeLeft'); // Div for displaying countdown duration
 const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for displaying timer end time 
@@ -28,9 +29,12 @@ function timer(seconds){
             clearInterval(countdown);
             timerDisplay.textContent = 'Time\'s Up!';
             endTimeDisplay.textContent = "";
-            timerModifierButtons.forEach(button => console.log(button.textContent));
+            timerModifierButtons.forEach(button => button.textContent !== ' Stop ' && (button.style.display = 'none'));
+            document.title = 'Time\'s Up!';
 
-            
+            timerExpired = setInterval(() => {
+                timerSound.play();
+            }, 1000);            
             return;
         };
         displayTimeLeft(secondsLeft);
@@ -86,6 +90,7 @@ function adjustTimer(e){
     if (this.textContent == ' Stop ') {
         timerDisplay.classList.remove("paused");
         clearInterval(countdown);
+        clearInterval(timerExpired);
         timerDisplay.textContent = '';
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
