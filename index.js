@@ -4,6 +4,7 @@ const timerDisplay = document.querySelector('.displayTimeLeft'); // Div for disp
 const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for displaying timer end time 
 const timerButtons = document.querySelectorAll('.timerButton'); // Quick select preset timer buttons 
 const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
+const timerSound = document.querySelector(".timer-sound");
 
 // Runs timer, and displays timer duration
 function timer(seconds){
@@ -27,7 +28,9 @@ function timer(seconds){
             clearInterval(countdown);
             timerDisplay.textContent = 'Time\'s Up!';
             endTimeDisplay.textContent = "";
-            timerModifierButtons.forEach(button => button.style.display = 'none');
+            timerModifierButtons.forEach(button => console.log(button.textContent));
+
+            
             return;
         };
         displayTimeLeft(secondsLeft);
@@ -56,7 +59,6 @@ function displayEndTime(timestamp){
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
 function runButton(e){
     const timeValue = e.target.dataset.time;
-
     timerDisplay.classList.remove("paused");
     timer(timeValue);
 }
