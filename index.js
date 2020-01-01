@@ -78,6 +78,7 @@ function customTime(e){
     if (Number.isInteger(+this.minutes.value)) {
         const timeValue = this.minutes.value * 60;
         timer(timeValue);
+        this.minutes.value = '';
     } else {
         clearInterval(countdown);
         timerDisplay.textContent = '';
