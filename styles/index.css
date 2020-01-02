@@ -155,23 +155,24 @@ input {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
-  /* The Close Button */
-  .close {
-  color: rgba(250, 250, 250, .8);
-  float: right;
-  font-weight: bold;
-  transition: .3s;
-  padding: 20px 5px 0 0;
-  font-size: 40px;
+  .start-button {
+    float: right;
+    transition: .3s;
+    padding: 20px 5px 0 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 150px;
+    padding: 5px 0;
+    background: rgba(164, 212, 174, 1);
+    border: none;
+    border-radius: 3px;
+    outline: none;
   }
 
-  .close:hover,
-  .close:focus {
-  color: #1B2A49;
-  text-decoration: none;
-  cursor: pointer;
+  .start-button:hover {
+    background: rgba(100, 180, 120, 1);
   }
-  
+
   /* Modal Header */
   .modal-header {
     padding: 2px 16px;
@@ -185,22 +186,18 @@ input {
     font-size: 2rem;
   }
 
-  .modal-header i {
-    font-size: 2rem;
-  }
-  
   /* Modal Content */
   .modal-content {
-  position: relative;
-  background-color: rgba(250, 250, 250, 1);
-  border-radius: 4px;
-  margin: auto;
-  padding: 0;
-  width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  line-height: 1.4;
+    position: relative;
+    background-color: rgba(250, 250, 250, 1);
+    border-radius: 4px;
+    margin: auto;
+    padding: 0;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    line-height: 1.4;
   }
 
   .modal-content span {
@@ -213,13 +210,13 @@ input {
   }
 
   .about-text {
-    margin: 0px 0px 0px 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
     line-height: 1.4;
+    padding: 0 3%;
   }
 
   /* Add Animation */
@@ -235,7 +232,7 @@ input {
 
   .info-command strong {
     font-size: 1.4rem;
-    background: #a4d4aeb9;
+    background: rgba(0, 0, 0, .1);
     padding: 3px 5px;
     border-radius: 4px;
   }
@@ -248,13 +245,6 @@ input {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 30px;
-    
+    padding: 10px 0  20px;
   }
   
-  .button-container button {
-    width: 200px;
-    padding: 10px 0;
-    font-family: 'Open Sans', 'sans-serif';
-  }
-
