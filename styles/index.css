@@ -128,3 +128,8 @@ input {
   opacity: .4;
   color: red;
 }
+
+.info-button {
+  position: absolute;
+  width: 100px;
+}
