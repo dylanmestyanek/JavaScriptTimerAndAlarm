@@ -142,7 +142,7 @@ input {
 }
 
 .modal {
-  display: BLOCK; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   top: 0;
@@ -150,7 +150,7 @@ input {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto;
-  padding: 5% 0 0 20%; /* Enable scroll if needed */
+  padding: 5% 0 0 13%; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
@@ -191,7 +191,7 @@ input {
     position: relative;
     background-color: rgba(250, 250, 250, 1);
     border-radius: 4px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
