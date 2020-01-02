@@ -67,7 +67,7 @@ input {
   cursor: pointer;
   color: white;
   font-size: 2rem;
-  background: #32afa9;
+  background: #319590;
   border-bottom: 3px solid rgba(0,0,0,0.2);
   border-right: 1px solid rgba(0,0,0,0.2);
   padding: 1rem;
@@ -131,5 +131,12 @@ input {
 
 .info-button {
   position: absolute;
-  width: 100px;
+  top: 92%;
+  left: 95%;
+}
+
+.info-button i {
+  font-size: 3rem;
+  color: #319590;
+  cursor: pointer;
 }
