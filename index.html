@@ -46,6 +46,31 @@
         </div> 
       <!-- Closes .displayTimeContainer -->
     </div> 
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="close fa fa-times-circle" data-span="3"></i>
+          <h2>Voice Recognition Timer</h2>
+        </div>
+        <div class="about-text">
+          <p><strong><span><u>Description:</u></span></strong> This is a timer application built with Vanilla JavaScript. While it offers your standard preset timer values, and allows the option for a custom time input value, the joy of this app is using voice command to start the timer!</p>
+          <p><strong><span><u>How it works:</u></span></strong> Upon clicking the <em>'Voice Control'</em> button, you will be prompted with the browser asking permission to access your microphone. The timer expects a certain voice command format which should be structured as follows:</p> <br /> 
+            <div class="info-command">
+              <strong>"Set a timer for ___ minutes."</strong> 
+              <br/> <br/> <p>or</p> <br/> 
+              <strong>"Set a timer for ___ minutes and ___ seconds."</strong>
+            </div>
+          <br/> 
+          <p><strong><span><u>Note: </u></span></strong> The voice command has a set timer and once approved, the browser will have an 8 second window before it cancels the voice activation request. If the request times out, re-click the <em>'Voice Control'</em> option, and repeat your command!</p>
+        </div>
+
+        <div class="button-container">
+          <a href="https://weight-lift-journal-dev.herokuapp.com/" target="_blank"><button>Deployed Project</button></a>
+          <a href="https://github.com/Build-Week-Weight-Lifiting-Journal/Back-end" target="_blank"><button>GitHub Repository</button></a>
+        </div>
+      </div>
+    </div>
   <!-- Closes .timerContainer -->
   <script src="index.js"></script>
 </body>

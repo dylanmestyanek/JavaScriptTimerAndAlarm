@@ -140,3 +140,121 @@ input {
   color: #319590;
   cursor: pointer;
 }
+
+.modal {
+  display: BLOCK; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  top: 0;
+  right: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+  padding: 5% 0 0 20%; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* The Close Button */
+  .close {
+  color: rgba(250, 250, 250, .8);
+  float: right;
+  font-weight: bold;
+  transition: .3s;
+  padding: 20px 5px 0 0;
+  font-size: 40px;
+  }
+
+  .close:hover,
+  .close:focus {
+  color: #1B2A49;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #319590;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .modal-header h2 {
+    color: rgba(250, 250, 250, 1);
+    font-size: 2rem;
+  }
+
+  .modal-header i {
+    font-size: 2rem;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+  position: relative;
+  background-color: rgba(250, 250, 250, 1);
+  border-radius: 4px;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  line-height: 1.4;
+  }
+
+  .modal-content span {
+    font-size: 1.6rem;
+  }
+
+  .modal-content p { 
+    font-size: 1.4rem;
+    margin: 5px 0;
+  }
+
+  .about-text {
+    margin: 0px 0px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  /* Add Animation */
+  @keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+  }
+
+  .info-command {
+    width: 100%;
+    text-align: center;
+  }
+
+  .info-command strong {
+    font-size: 1.4rem;
+    background: #a4d4aeb9;
+    padding: 3px 5px;
+    border-radius: 4px;
+  }
+
+  .info-command p {
+    font-size: 1.4rem;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 30px;
+    
+  }
+  
+  .button-container button {
+    width: 200px;
+    padding: 10px 0;
+    font-family: 'Open Sans', 'sans-serif';
+  }
+
