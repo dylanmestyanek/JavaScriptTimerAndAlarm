@@ -7,7 +7,7 @@ menu.addEventListener('click', (e) => {
 })
 
 timerContainer.addEventListener('click', e => {
-    if (window.innerWidth <= 600) {
+    if (window.innerWidth <= 600 && ![...timerControls.classList].includes("hidden")) {
         timerControls.classList.toggle('hidden');
     }
 })
