@@ -11,3 +11,10 @@ timerContainer.addEventListener('click', e => {
         timerControls.classList.add('hidden');
     }
 })
+
+window.addEventListener('load', e => {
+    if (window.innerWidth <= 600) {
+        controls.classList.add("hidden");
+        menu.classList.add("hidden");
+    }
+});
