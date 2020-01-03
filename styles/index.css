@@ -296,6 +296,10 @@ input {
   }
 
   .displayTimeLeft {
-    font-size: 12rem !important;
+    font-size: 8rem !important;
+  }
+
+  .displayEndTime {
+    font-size: 3rem;
   }
 }
