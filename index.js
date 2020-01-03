@@ -90,6 +90,10 @@ function customTime(e){
         timerModifierButtons.forEach(button => button.style.display = 'none');
         endTimeDisplay.textContent = "Please input a valid time value."
     }
+
+    if (window.innerWidth <= 600) {
+        controls.classList.add("hidden");
+    }
 }
 
 let timeLeft;

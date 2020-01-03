@@ -127,20 +127,8 @@ input {
   color: red;
 }
 
-.info-button {
-  position: absolute;
-  top: 92%;
-  left: 95%;
-}
-
-.info-button i {
-  font-size: 3rem;
-  color: #319590;
-  cursor: pointer;
-}
-
 .modal {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   top: 0;
@@ -297,10 +285,6 @@ input {
   .timerControls {
     width: 80%;
     position: absolute;
-  }
-
-  .info-button {
-    display: none;
   }
 
   .modal {
