@@ -53,9 +53,9 @@ input {
 .timerControls input {
   flex: 1;
   border: 0;
-  height: 40px;
+  /* height: 40px; */
   width: 100%;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   font-size: 1.8rem;
   text-align: center;
   outline: 0;
@@ -247,4 +247,39 @@ input {
     justify-content: space-evenly;
     padding: 10px 0  20px;
   }
+
+  .menu {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    background: red;
+    border-radius: 3px;
+    cursor: pointer;
+    top: 10px;
+    left: 10px;
+  }
+
+  .menu-div {
+    width: 35px;
+    height: 4px;
+    background: black;
+  }
   
+/* ============================== MOBILE RESPONSIVENESS ================================== */
+
+@media screen and (max-width: 600px) {
+
+  .menu {
+    display: flex;
+    z-index: 10;
+  }
+
+  .timerControls {
+    width: 80%;
+    position: absolute;
+  }
+}
