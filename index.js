@@ -120,7 +120,7 @@ function adjustTimer(e){
         document.title = `${timeLeft} (Paused)`;
     }
 
-    if (this.textContent == ' Play ') {
+    if (this.textContent == ' Play ' && [...timerDisplay.classList].includes("paused")) {
         const splitTime = timeLeft.split(":");
         const resumeTime = +(splitTime[0] * 60) + +splitTime[1];
         timerDisplay.classList.remove("paused");
