@@ -275,7 +275,7 @@ input {
   }
 /* ============================== MOBILE RESPONSIVENESS ================================== */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
 
   .menu {
     display: flex;
@@ -301,5 +301,15 @@ input {
 
   .displayEndTime {
     font-size: 3rem;
+  }
+
+  .start-button {
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .modal-content {
+    width: 80%
   }
 }
