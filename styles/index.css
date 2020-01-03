@@ -24,7 +24,6 @@ input {
   color: white;
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
   white-space: pre-line;
-  /* transition: all .3s; */
 }
 
 .timerContainer {
@@ -269,7 +268,7 @@ input {
   }
 
   .hidden {
-    transform: translateX(-350px);
+    transform: translateX(-550px);
   }
   
   .help-button {
@@ -310,5 +309,9 @@ input {
   
   .modal-content {
     width: 100%;
+  }
+
+  .displayTimeLeft {
+    font-size: 12rem !important;
   }
 }
