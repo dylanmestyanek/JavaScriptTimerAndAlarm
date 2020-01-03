@@ -269,7 +269,7 @@ input {
   }
 
   .hidden {
-    transform: translateX(-330px);
+    transform: translateX(-350px);
   }
   
   .help-button {
@@ -302,5 +302,13 @@ input {
 
   .info-button {
     display: none;
+  }
+
+  .modal {
+    padding: 10% 3% 3% 3%;
+  }
+  
+  .modal-content {
+    width: 100%;
   }
 }

@@ -6,6 +6,7 @@ const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for dis
 const timerButtons = document.querySelectorAll('.timerButton'); // Quick select preset timer buttons 
 const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
 const timerSound = document.querySelector(".timer-sound");
+const controls = document.querySelector(".timerControls");
 
 // Runs timer, and displays timer duration
 function timer(seconds){
@@ -67,6 +68,10 @@ function runButton(e){
     const timeValue = e.target.dataset.time;
     timerDisplay.classList.remove("paused");
     timer(timeValue);
+    
+    if (window.innerWidth <= 600) {
+        controls.classList.add("hidden");
+    }
 }
 
 // Takes in custom time duration within input field
