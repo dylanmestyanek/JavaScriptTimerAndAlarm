@@ -109,6 +109,8 @@ function adjustTimer(e){
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
         document.title = 'Voice Recognition Timer';
+
+        controls.classList.remove("hidden");
     }
 
     if (this.textContent == ' Pause ') {
@@ -125,7 +127,6 @@ function adjustTimer(e){
         const resumeTime = +(splitTime[0] * 60) + +splitTime[1];
         timerDisplay.classList.remove("paused");
         timer(resumeTime);
-        endTimeDisplay.textContent = `Arrive back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes} ${hour > 12 ? "PM" : "AM"}.`;
     }
 }
 
