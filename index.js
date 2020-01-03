@@ -138,6 +138,11 @@ function endTimer(){
 timerModifierButtons.forEach(button => button.addEventListener('click', adjustTimer)); // Gives Pause/Stop button 'Click' functionality
 timerButtons.forEach(button => button.addEventListener('click', runButton)); // Gives preset value buttons 'Click' functionality
 document.customTimeForm.addEventListener('submit', customTime); // Allows input of custom timer duration within input field
+window.addEventListener('resize', e => {
+    if (window.innerWidth > 600) {
+        controls.classList.remove("hidden");
+    }
+});
 
 // =============================== SPEECH RECOGNITION FUNCTIONALITY =============================== //
 
