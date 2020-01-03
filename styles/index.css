@@ -307,9 +307,3 @@ input {
     padding: 10px 0;
   }
 }
-
-@media screen and (max-width: 700px){
-  .modal-content {
-    width: 80%
-  }
-}
