@@ -40,6 +40,7 @@ input {
   width: 15%;
   min-width: 100px;
   height: 100vh;
+  transition: .3s;
 }
 
 .timerControls > * {
@@ -53,9 +54,7 @@ input {
 .timerControls input {
   flex: 1;
   border: 0;
-  /* height: 40px; */
   width: 100%;
-  /* margin-top: 5%; */
   font-size: 1.8rem;
   text-align: center;
   outline: 0;
@@ -142,7 +141,7 @@ input {
 }
 
 .modal {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   top: 0;
@@ -268,6 +267,10 @@ input {
     height: 4px;
     background: black;
   }
+
+  .hidden {
+    transform: translateX(-330px);
+  }
   
 /* ============================== MOBILE RESPONSIVENESS ================================== */
 
@@ -281,5 +284,9 @@ input {
   .timerControls {
     width: 80%;
     position: absolute;
+  }
+
+  .info-button {
+    display: none;
   }
 }
