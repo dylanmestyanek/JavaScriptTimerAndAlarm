@@ -1,18 +1,20 @@
-let countdown; 
-let timerExpired;
+let countdown; // This will be an interval that needs to be ran/cleared in several places 
+let timerExpired; // This will be an interval that needs to be ran/cleared in several places
+let timeLeft; // This is a variable so the 'Pause' and 'Play' buttons can reference the remaining time left once paused
 let errorMessage; // Error message when you've waited too long to speak for voice recognition
 const timerDisplay = document.querySelector('.displayTimeLeft'); // Div for displaying countdown duration
 const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for displaying timer end time 
 const timerButtons = document.querySelectorAll('.timerButton'); // Quick select preset timer buttons 
 const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
-const timerSound = document.querySelector(".timer-sound");
-const controls = document.querySelector(".timerControls");
+const timerSound = document.querySelector(".timer-sound"); // Alarm sound from audio element
+const controls = document.querySelector(".timerControls"); // Controls containing the preset timer values
 
 // Runs timer, and displays timer duration
 function timer(seconds){
     // Clears any timers and error messages off screen before beginning a new timer
     clearInterval(countdown);
     clearInterval(errorMessage);
+
     // Displays pause/stop button when timer is active
     timerModifierButtons.forEach(button => button.style.display = 'inline-block');
 
@@ -33,12 +35,14 @@ function timer(seconds){
             timerModifierButtons.forEach(button => button.textContent !== ' Stop ' && (button.style.display = 'none'));
             document.title = 'Time\'s Up!';
 
+            // Interval that runs the alarm 
             timerExpired = setInterval(() => {
                 timerSound.play();
                 timerDisplay.classList.toggle('paused');
             }, 600);            
             return;
         };
+
         displayTimeLeft(secondsLeft);
     }, 1000);
 
@@ -69,7 +73,7 @@ function runButton(e){
     timerDisplay.classList.remove("paused");
     timer(timeValue);
     
-    if (window.innerWidth <= 600) {
+    if (window.innerWidth <= 500) {
         controls.classList.add("hidden");
     }
 }
@@ -91,16 +95,15 @@ function customTime(e){
         endTimeDisplay.textContent = "Please input a valid time value."
     }
 
-    if (window.innerWidth <= 600) {
+    if (window.innerWidth <= 500) {
         controls.classList.add("hidden");
     }
 }
 
-let timeLeft;
 
 // Pause/Stop button functionality
 function adjustTimer(e){
-    // If 'Stop' button is pressed, clear timer, timer displays, and hide Pause/Stop buttons
+    // If 'Stop' button is pressed, clear timer, timer displays, and hide Play/Pause/Stop buttons
     if (this.textContent == ' Stop ') {
         endTimer();
         clearInterval(countdown);
@@ -109,14 +112,12 @@ function adjustTimer(e){
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
         document.title = 'Voice Recognition Timer';
-
         controls.classList.remove("hidden");
     }
 
     if (this.textContent == ' Pause ') {
         clearInterval(countdown);
         timeLeft = timerDisplay.textContent;
-
         timerDisplay.classList.add("paused");
         endTimeDisplay.textContent = `The timer is currently paused...`;
         document.title = `${timeLeft} (Paused)`;
@@ -139,11 +140,7 @@ function endTimer(){
 timerModifierButtons.forEach(button => button.addEventListener('click', adjustTimer)); // Gives Pause/Stop button 'Click' functionality
 timerButtons.forEach(button => button.addEventListener('click', runButton)); // Gives preset value buttons 'Click' functionality
 document.customTimeForm.addEventListener('submit', customTime); // Allows input of custom timer duration within input field
-window.addEventListener('resize', e => {
-    if (window.innerWidth > 600) {
-        controls.classList.remove("hidden");
-    }
-});
+window.addEventListener('resize', () => window.innerWidth > 500 && controls.classList.remove("hidden")); // If controls are hidden in mobile view, and the view switches to desktop, then display the controls
 
 // =============================== SPEECH RECOGNITION FUNCTIONALITY =============================== //
 
@@ -170,8 +167,6 @@ recognition.addEventListener('result', e => {
         if (timeValues.length > 1) {
             let stringValues = transcript.split(' ').filter(value =>  (/minute/i).test(value) || (/second/i).test(value));
             let timeFormat = [...timeValues, ...stringValues]
-
-            console.log((/minute/i).test(timeFormat[2]))
 
             if ((/minute/i).test(timeFormat[2]) && (/second/i).test(timeFormat[3])) {
                 let valueInSeconds = (+timeFormat[0] * 60) + +timeFormat[1];
@@ -204,8 +199,8 @@ document.querySelector(".voiceRecognitionButton").onclick = () => {
     timerDisplay.textContent = 'Listening for a time duration...'
     timerDisplay.style.fontSize = '60px';
     document.title = 'Listening...'
-
     recognition.start();
+
     // If voice recognition duration expires, display error message
     errorMessage = setTimeout(() => {
         timerDisplay.textContent = "Woops! \r\n You waited too long to speak. \r\n Click 'Voice Control' to restart.";
