@@ -7,7 +7,7 @@ const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for dis
 const timerButtons = document.querySelectorAll('.timerButton'); // Quick select preset timer buttons 
 const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
 const timerSound = document.querySelector(".timer-sound"); // Alarm sound from audio element
-const controls = document.querySelector(".timerControls"); // Controls containing the preset timer values
+const timerControls = document.querySelector(".timerControls"); // The timer container holding all preset timer value buttons
 
 // Runs timer, and displays timer duration
 function timer(seconds){
@@ -73,7 +73,7 @@ function runButton(e){
     timer(timeValue);
     
     if (window.innerWidth <= 500) {
-        controls.classList.add("hidden");
+        timerControls.classList.add("hidden");
     }
 }
 
@@ -95,7 +95,7 @@ function customTime(e){
     }
 
     if (window.innerWidth <= 500) {
-        controls.classList.add("hidden");
+        timerControls.classList.add("hidden");
     }
 }
 
@@ -111,7 +111,7 @@ function adjustTimer(e){
         endTimeDisplay.textContent = '';
         timerModifierButtons.forEach(button => button.style.display = 'none');
         document.title = 'Voice Recognition Timer';
-        controls.classList.remove("hidden");
+        timerControls.classList.remove("hidden");
     }
 
     if (this.textContent == ' Pause ') {

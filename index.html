@@ -12,11 +12,14 @@
 
 <body>
     <div class="timerContainer">
+
+      <!-- Hamburger Menu -->
       <div class="menu">
         <div class="menu-div"></div>
         <div class="menu-div"></div>
         <div class="menu-div"></div>
       </div>
+
       <!-- Timer Navigation Bar  -->
         <div class="timerControls">
           <button data-time="60" class="timerButton">Quick Minute</button>
@@ -30,31 +33,33 @@
             <input type="text" name="minutes" placeholder="Enter Minutes">
           </form>
         </div>
-      <!-- Closes Timer Navigation Bar -->
     
-      <!-- Timer Text Coundown, Time to return from break, and Pause/Stop Buttons -->
+      <!-- Timer Text Coundown, Time to return from break, Play/Pause/Stop Buttons, and alarm audio element -->
         <div class="displayTimeContainer">
           <h1 class="displayTimeLeft"></h1>
           <p class="displayEndTime"></p>
-          <!-- Pause/Stop Buttons Container -->
-            <div class="buttonContainer">
+
+          <div class="buttonContainer">
               <button class="timerModifiers play"> Play </button>
               <button class="timerModifiers pause"> Pause </button>
               <button class="timerModifiers stop"> Stop </button>
-            </div> 
-          <!-- Closes .buttonContainer -->
+          </div> 
+
           <audio class="timer-sound">
-            <source src="./radar.mp3" type="audio/mpeg">
+              <source src="./radar.mp3" type="audio/mpeg">
           </audio>
         </div> 
-      <!-- Closes .displayTimeContainer -->
-    </div> 
 
+      </div> 
+
+    <!-- Modal Beginning -->
     <div class="modal">
       <div class="modal-content">
+
         <div class="modal-header">
           <h2>Voice Recognition Timer</h2>
         </div>
+        
         <div class="about-text">
           <p><strong><span><u>Description:</u></span></strong> This is a timer application built with Vanilla JavaScript. While it offers preset and custom timer for convenient use, the joy of this app is using your <em>voice</em> to start the timer instead!</p>
           <p><strong><span><u>How it works:</u></span></strong> Upon clicking the <em>'Voice Control'</em> button, you will be prompted with the browser asking permission to access your microphone. The timer expects a certain voice command format which should be structured as follows:</p> <br /> 
@@ -72,7 +77,8 @@
         </div>
       </div>
     </div>
-  <!-- Closes .timerContainer -->
+    <!-- Modal End -->
+
   <script src="index.js"></script>
   <script src="modal.js"></script>
   <script src="menu.js"></script>

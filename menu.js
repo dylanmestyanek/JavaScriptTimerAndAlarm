@@ -1,5 +1,4 @@
 const menu = document.querySelector(".menu");
-const timerControls = document.querySelector(".timerControls");
 const timerContainer = document.querySelector(".displayTimeContainer");
 
 // Adds clickability to the hamburger menu
@@ -17,7 +16,7 @@ timerContainer.addEventListener('click', e => {
 // On page load, if the view is mobile, hide the hamburger menu, and the timer controls so only the modal is displayed
 window.addEventListener('load', e => {
     if (window.innerWidth <= 600) {
-        controls.classList.add("hidden");
+        timerControls.classList.add("hidden");
         menu.classList.add("hidden");
     }
 });
