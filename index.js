@@ -45,7 +45,6 @@ function timer(seconds){
 
         displayTimeLeft(secondsLeft);
     }, 1000);
-
 }
 
 // Displays timer duration on screen and browser tab
