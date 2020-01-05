@@ -82,22 +82,24 @@ function runButton(e){
 // Takes in custom time duration within input field
 function customTime(e){
     e.preventDefault();
-    endTimer();
-    timerDisplay.classList.remove("paused");
-
-    if (Number.isInteger(+customTimeInput.value)) {
-        const timeValue = customTimeInput.value * 60;
-        timer(timeValue);
-        customTimeInput.value = '';
-    } else {
-        clearInterval(countdown);
-        timerDisplay.textContent = '';
-        timerModifierButtons.forEach(button => button.style.display = 'none');
-        endTimeDisplay.textContent = "Please input a valid time value."
-    }
-
-    if (window.innerWidth <= 500) {
-        timerControls.classList.add("hidden");
+    if (customTimeInput.value !== '') {
+        endTimer();
+        timerDisplay.classList.remove("paused");
+    
+        if (Number.isInteger(+customTimeInput.value)) {
+            const timeValue = customTimeInput.value * 60;
+            timer(timeValue);
+            customTimeInput.value = '';
+        } else {
+            clearInterval(countdown);
+            timerDisplay.textContent = '';
+            timerModifierButtons.forEach(button => button.style.display = 'none');
+            endTimeDisplay.textContent = "Please input a valid time value."
+        }
+    
+        if (window.innerWidth <= 500) {
+            timerControls.classList.add("hidden");
+        }
     }
 }
 
