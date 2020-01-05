@@ -340,4 +340,8 @@ input {
   .start-button {
     padding: 10px 0;
   }
+
+  .displayTimeContainer {
+    padding: 0 8%;
+  }
 }

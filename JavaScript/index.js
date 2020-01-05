@@ -199,15 +199,14 @@ recognition.addEventListener('result', e => {
 document.querySelector(".voiceRecognitionButton").onclick = () => {
     clearInterval(countdown);
     timerModifierButtons.forEach(button => button.style.display = 'none');
-    endTimeDisplay.textContent = '';
-    timerDisplay.textContent = 'Listening for a time duration...'
-    timerDisplay.style.fontSize = '60px';
+    timerDisplay.textContent = '';
+    endTimeDisplay.textContent = 'Listening for a time duration...'
     document.title = 'Listening...'
     recognition.start();
 
     // If voice recognition duration expires, display error message
     errorMessage = setTimeout(() => {
-        timerDisplay.textContent = "Woops! \r\n You waited too long to speak. \r\n Click 'Voice Control' to restart.";
+        endTimeDisplay.textContent = "Woops! \r\n You waited too long to speak. \r\n Click 'Voice Control' to restart.";
         document.title = "Voice Recognition Failed"
     }, 8000);
 };
