@@ -102,7 +102,9 @@ input {
 } 
 
 .timerButton:hover,
-.timerButton:focus {
+.help-button:hover,
+.timerButton:focus,
+.help-button:focus {
   background: #8bbabb;
   outline: 0;
 }
