@@ -22,7 +22,6 @@ input {
   font-size: 20rem;
   margin: 0;
   color: white;
-  text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
   white-space: pre-line;
 }
 
@@ -137,7 +136,6 @@ input {
 .displayEndTime {
   font-size: 4rem;
   color: white;
-  text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
 }
 
 .paused {
