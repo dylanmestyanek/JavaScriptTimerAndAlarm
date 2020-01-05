@@ -103,7 +103,7 @@ function customTime(e){
 // Pause/Stop button functionality
 function adjustTimer(e){
     // If 'Stop' button is pressed, clear timer, timer displays, and hide Play/Pause/Stop buttons
-    if (this.textContent == ' Stop ') {
+    if (this.dataset.method === 'stop') {
         endTimer();
         clearInterval(countdown);
         timerDisplay.classList.remove("paused");
@@ -114,7 +114,7 @@ function adjustTimer(e){
         timerControls.classList.remove("hidden");
     }
 
-    if (this.textContent == ' Pause ') {
+    if (this.dataset.method === 'pause') {
         clearInterval(countdown);
         timeLeft = timerDisplay.textContent;
         timerDisplay.classList.add("paused");
@@ -122,7 +122,7 @@ function adjustTimer(e){
         document.title = `${timeLeft} (Paused)`;
     }
 
-    if (this.textContent == ' Play ' && [...timerDisplay.classList].includes("paused")) {
+    if (this.dataset.method === 'play' && [...timerDisplay.classList].includes("paused")) {
         const splitTime = timeLeft.split(":");
         const resumeTime = +(splitTime[0] * 60) + +splitTime[1];
         timerDisplay.classList.remove("paused");
