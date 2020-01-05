@@ -37,8 +37,8 @@ input {
   flex-direction: column;
   width: 15%;
   min-width: 100px;
-  height: 100vh;
   transition: .3s;
+  height: 100vh;
 }
 
 .timerControls > * {
@@ -131,6 +131,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .displayEndTime {
@@ -224,6 +225,7 @@ input {
 
   .custom-time-button {
     width: 20%;
+    min-width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -308,17 +310,17 @@ input {
 /* ============================== MOBILE RESPONSIVENESS ================================== */
 
 @media screen and (max-width: 500px) {
-
+  
   .menu {
     display: flex;
     z-index: 10;
   }
-
+  
   .timerControls {
     width: 80%;
     position: absolute;
   }
-
+  
   .modal {
     padding: 10% 3% 3% 3%;
   }
@@ -326,20 +328,26 @@ input {
   .modal-content {
     width: 100%;
   }
-
+  
   .displayTimeLeft {
     font-size: 8rem !important;
   }
-
+  
   .displayEndTime {
     font-size: 3rem;
   }
-
+  
   .start-button {
     padding: 10px 0;
   }
-
+  
   .displayTimeContainer {
     padding: 0 8%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .timerControls input {
+    font-size: 1.3rem;
   }
 }
