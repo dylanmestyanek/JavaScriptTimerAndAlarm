@@ -8,7 +8,8 @@ menu.addEventListener('click', (e) => {
 
 // If the mobile view is displayed and you click outside of the timer controls, then hide them (the menu)
 timerContainer.addEventListener('click', e => {
-    if (window.innerWidth <= 600 && ![...timerControls.classList].includes("hidden") && e.target.textContent !== " Stop ") {
+    console.log(e.target.dataset)
+    if (window.innerWidth <= 600 && ![...timerControls.classList].includes("hidden") && e.target.dataset.method !== 'stop') {
         timerControls.classList.add('hidden');
     }
 })
