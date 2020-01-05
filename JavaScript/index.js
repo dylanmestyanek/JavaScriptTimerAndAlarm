@@ -8,6 +8,8 @@ const timerButtons = document.querySelectorAll('.timerButton'); // Quick select 
 const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
 const timerSound = document.querySelector(".timer-sound"); // Alarm sound from audio element
 const timerControls = document.querySelector(".timerControls"); // The timer container holding all preset timer value buttons
+const customTimeButton = document.querySelector(".custom-time-button"); // The 'Play' button next to the custom time input
+const customTimeInput = document.querySelector('.custom-time-input');
 
 // Runs timer, and displays timer duration
 function timer(seconds){
@@ -32,7 +34,7 @@ function timer(seconds){
             clearInterval(countdown);
             timerDisplay.textContent = 'Time\'s Up!';
             endTimeDisplay.textContent = "";
-            timerModifierButtons.forEach(button => button.textContent !== ' Stop ' && (button.style.display = 'none'));
+            timerModifierButtons.forEach(button => button.dataset.method !== 'stop' && (button.style.display = 'none'));
             document.title = 'Time\'s Up!';
 
             // Interval that runs the alarm 
@@ -83,10 +85,10 @@ function customTime(e){
     endTimer();
     timerDisplay.classList.remove("paused");
 
-    if (Number.isInteger(+this.minutes.value)) {
-        const timeValue = this.minutes.value * 60;
+    if (Number.isInteger(+customTimeInput.value)) {
+        const timeValue = customTimeInput.value * 60;
         timer(timeValue);
-        this.minutes.value = '';
+        customTimeInput.value = '';
     } else {
         clearInterval(countdown);
         timerDisplay.textContent = '';
@@ -108,7 +110,7 @@ function adjustTimer(e){
         clearInterval(countdown);
         timerDisplay.classList.remove("paused");
         timerDisplay.textContent = '';
-        endTimeDisplay.textContent = '';
+        endTimeDisplay.textContent = "Voice Recognition Timer";
         timerModifierButtons.forEach(button => button.style.display = 'none');
         document.title = 'Voice Recognition Timer';
         timerControls.classList.remove("hidden");
@@ -139,7 +141,8 @@ function endTimer(){
 timerModifierButtons.forEach(button => button.addEventListener('click', adjustTimer)); // Gives Pause/Stop button 'Click' functionality
 timerButtons.forEach(button => button.addEventListener('click', runButton)); // Gives preset value buttons 'Click' functionality
 document.customTimeForm.addEventListener('submit', customTime); // Allows input of custom timer duration within input field
-window.addEventListener('resize', () => window.innerWidth > 500 && controls.classList.remove("hidden")); // If controls are hidden in mobile view, and the view switches to desktop, then display the controls
+customTimeButton.addEventListener('click', customTime);
+window.addEventListener('resize', () => window.innerWidth > 500 && timerControls.classList.remove("hidden")); // If controls are hidden in mobile view, and the view switches to desktop, then display the controls
 
 // =============================== SPEECH RECOGNITION FUNCTIONALITY =============================== //
 

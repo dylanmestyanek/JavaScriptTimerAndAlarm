@@ -6,8 +6,8 @@
   <title>Voice Recognition Timer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles/normalize.css">
-  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="Styles/index.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 
@@ -31,19 +31,23 @@
           <button class="timerButton voiceRecognitionButton">Voice Control</button>
           <button class="help-button" title="Learn how it works"> Help </button>
           <form name="customTimeForm" id="custom" autocomplete="off">
-            <input type="text" name="minutes" placeholder="Enter Minutes">
+            <input type="text" name="minutes" placeholder="Enter Minutes" class="custom-time-input">
+            <div class="custom-time-button"><i class="fa fa-play"></i></div>
           </form>
         </div>
     
       <!-- Timer Text Coundown, Time to return from break, Play/Pause/Stop Buttons, and alarm audio element -->
         <div class="displayTimeContainer">
           <h1 class="displayTimeLeft"></h1>
-          <p class="displayEndTime"></p>
+          <p class="displayEndTime">
+            <i><b>Voice Recognition Timer</b></i> <br /> <br />
+             View the <i>'Help'</i> tab for tips on getting started!
+          </p>
 
           <div class="buttonContainer">
             <button class="timerModifiers stop" title="Stop Timer" data-method="stop"> <i class="fa fa-stop"></i> </button>
             <button class="timerModifiers pause"  title="Pause Timer" data-method="pause"> <i class="fa fa-pause"></i> </button>
-            <button class="timerModifiers play"  title="Play Timer" data-method="play"> <i class="fa fa-play"></i> </button>
+            <button class="timerModifiers play"  title="Play Timer" data-method="play"> <i class="fa fa-play"></i> </div>
           </div> 
 
           <audio class="timer-sound">

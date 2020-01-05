@@ -57,6 +57,7 @@ input {
   font-size: 1.8rem;
   text-align: center;
   outline: 0;
+  border-bottom: 3px solid rgba(0,0,0,0.2);
 }
 
 .timerButton, .timerModifiers, .voiceRecognitionButton {
@@ -108,6 +109,21 @@ input {
   background: #8bbabb;
   outline: 0;
 }
+ 
+.help-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  background: #319590;
+  border-bottom: 3px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  outline: 0;
+}
 
 .displayTimeContainer {
   background: #a4d4ae;
@@ -129,6 +145,7 @@ input {
   color: red;
 }
 
+/* ====================== MODAL STYLING =========================== */
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -207,6 +224,28 @@ input {
     padding: 0 3%;
   }
 
+  .custom-time-button {
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    cursor: pointer;
+    background: white;
+    border: none;
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .custom-time-button:hover {
+    background-color: rgba(49, 149, 144, .6);
+  }
+
+  .custom-time-button i {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, .6);
+  }
+
   /* Add Animation */
   @keyframes animatetop {
   from {top: -300px; opacity: 0}
@@ -236,6 +275,7 @@ input {
     padding: 10px 0  20px;
   }
 
+/* ====================== HAMBURGER MENU STYLING =========================== */
   .menu {
     position: absolute;
     display: none;
@@ -260,21 +300,7 @@ input {
   .hidden {
     transform: translateX(-550px);
   }
-  
-  .help-button {
-    background: none;
-    border: 0;
-    cursor: pointer;
-    color: white;
-    font-size: 2rem;
-    background: #319590;
-    border-bottom: 3px solid rgba(0,0,0,0.2);
-    border-right: 1px solid rgba(0,0,0,0.2);
-    padding: 1rem;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    outline: 0;
-  }
+
 /* ============================== MOBILE RESPONSIVENESS ================================== */
 
 @media screen and (max-width: 500px) {
