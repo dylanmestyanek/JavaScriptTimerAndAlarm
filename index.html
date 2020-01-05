@@ -23,13 +23,13 @@
 
       <!-- Timer Navigation Bar  -->
         <div class="timerControls">
-          <button data-time="60" class="timerButton">Quick Minute</button>
-          <button data-time="300" class="timerButton">Catch a breath</button>
-          <button data-time="900" class="timerButton">Snack Time</button>
-          <button data-time="1200" class="timerButton">Power Nap</button>
-          <button data-time="3600" class="timerButton">Lunch Break</button>
+          <button data-time="60" class="timerButton" title="1 Minute Timer">Quick Minute</button>
+          <button data-time="300" class="timerButton" title="5 Minute Timer">Catch a breath</button>
+          <button data-time="900" class="timerButton" title="15 Minute Timer">Snack Time</button>
+          <button data-time="1200" class="timerButton" title="20 Minute Timer">Power Nap</button>
+          <button data-time="3600" class="timerButton" title="60 Minute Timer">Lunch Break</button>
           <button class="timerButton voiceRecognitionButton">Voice Control</button>
-          <button class="help-button"> Help </button>
+          <button class="help-button" title="Learn how it works"> Help </button>
           <form name="customTimeForm" id="custom" autocomplete="off">
             <input type="text" name="minutes" placeholder="Enter Minutes">
           </form>
@@ -41,9 +41,9 @@
           <p class="displayEndTime"></p>
 
           <div class="buttonContainer">
-            <button class="timerModifiers stop"> <i class="fa fa-stop"></i> </button>
-            <button class="timerModifiers pause"> <i class="fa fa-pause"></i> </button>
-            <button class="timerModifiers play"> <i class="fa fa-play"></i> </button>
+            <button class="timerModifiers stop" title="Stop Timer"> <i class="fa fa-stop"></i> </button>
+            <button class="timerModifiers pause"  title="Pause Timer"> <i class="fa fa-pause"></i> </button>
+            <button class="timerModifiers play"  title="Play Timer"> <i class="fa fa-play"></i> </button>
           </div> 
 
           <audio class="timer-sound">
