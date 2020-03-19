@@ -1,18 +1,18 @@
-let countdown; // This will be an interval that needs to be ran/cleared in several places 
-let timerExpired; // This will be an interval that needs to be ran/cleared in several places
-let timeLeft; // This is a variable so the 'Pause' and 'Play' buttons can reference the remaining time left once paused
-let errorMessage; // Error message when you've waited too long to speak for voice recognition
-const timerDisplay = document.querySelector('.displayTimeLeft'); // Div for displaying countdown duration
-const endTimeDisplay = document.querySelector('.displayEndTime'); // Div for displaying timer end time 
-const timerButtons = document.querySelectorAll('.timerButton'); // Quick select preset timer buttons 
-const timerModifierButtons = document.querySelectorAll('.timerModifiers'); // Pause/Stop Buttons below countdown on screen
-const timerSound = document.querySelector(".timer-sound"); // Alarm sound from audio element
-const timerControls = document.querySelector(".timerControls"); // The timer container holding all preset timer value buttons
-const customTimeButton = document.querySelector(".custom-time-button"); // The 'Play' button next to the custom time input
-const customTimeInput = document.querySelector('.custom-time-input');
+let countdown: number; // This will be an interval that needs to be ran/cleared in several places 
+let timerExpired: number; // This will be an interval that needs to be ran/cleared in several places
+let timeLeft: string; // This is a variable so the 'Pause' and 'Play' buttons can reference the remaining time left once paused
+let errorMessage: number; // Error message when you've waited too long to speak for voice recognition
+const timerDisplay = document.querySelector('.displayTimeLeft') as HTMLHeadingElement; // Div for displaying countdown duration
+const endTimeDisplay = document.querySelector('.displayEndTime') as HTMLParagraphElement; // Div for displaying timer end time 
+const timerButtons = document.querySelectorAll('.timerButton') as NodeListOf<HTMLButtonElement>; // Quick select preset timer buttons 
+const timerModifierButtons = document.querySelectorAll('.timerModifiers') as NodeListOf<HTMLButtonElement>; // Pause/Stop Buttons below countdown on screen
+const timerSound = document.querySelector(".timer-sound") as HTMLAudioElement; // Alarm sound from audio element
+const customTimeButton = document.querySelector(".custom-time-button") as HTMLButtonElement; // The 'Play' button next to the custom time input
+const customTimeInput = document.querySelector('.custom-time-input') as HTMLInputElement;
+export const timerControls = document.querySelector(".timerControls") as HTMLDivElement; // The timer container holding all preset timer value buttons
 
 // Runs timer, and displays timer duration
-function timer(seconds){
+function timer(seconds: number){
     // Clears any timers and error messages off screen before beginning a new timer
     clearInterval(countdown);
     clearInterval(errorMessage);
@@ -50,7 +50,7 @@ function timer(seconds){
 }
 
 // Displays timer duration on screen and browser tab
-function displayTimeLeft(seconds){
+function displayTimeLeft(seconds: number){
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
     const display = `${minutes < 10 ? '0' : ''}${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`
@@ -60,7 +60,7 @@ function displayTimeLeft(seconds){
 }
 
 // Displays timer's end time on the screen
-function displayEndTime(timestamp){
+function displayEndTime(timestamp: number){
     const end = new Date(timestamp);
     const hour = end.getHours();
     const minutes = end.getMinutes();
@@ -68,11 +68,14 @@ function displayEndTime(timestamp){
 }
 
 // Runs timer with preset value buttons (5 min, 20 min, lunch break)
-function runButton(e){
+function runButton(e: MouseEvent){
     endTimer();
-    const timeValue = e.target.dataset.time;
+    const timeValue = (e.target as HTMLButtonElement).dataset.time;
     timerDisplay.classList.remove("paused");
-    timer(timeValue);
+
+    if (timeValue){
+        timer(+timeValue);
+    }
     
     if (window.innerWidth <= 500) {
         timerControls.classList.add("hidden");
@@ -80,14 +83,14 @@ function runButton(e){
 }
 
 // Takes in custom time duration within input field
-function customTime(e){
+function customTime(e: MouseEvent){
     e.preventDefault();
     if (customTimeInput.value !== '') {
         endTimer();
         timerDisplay.classList.remove("paused");
     
         if (Number.isInteger(+customTimeInput.value)) {
-            const timeValue = customTimeInput.value * 60;
+            const timeValue = +customTimeInput.value * 60;
             timer(timeValue);
             customTimeInput.value = '';
         } else {
@@ -105,7 +108,7 @@ function customTime(e){
 
 
 // Pause/Stop button functionality
-function adjustTimer(e){
+function adjustTimer(){
     // If 'Stop' button is pressed, clear timer, timer displays, and hide Play/Pause/Stop buttons
     if (this.dataset.method === 'stop') {
         endTimer();

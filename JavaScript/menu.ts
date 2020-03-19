@@ -1,5 +1,6 @@
-const menu = document.querySelector(".menu");
-const timerContainer = document.querySelector(".displayTimeContainer");
+export const menu = document.querySelector(".menu") as HTMLDivElement;
+export const timerContainer = document.querySelector(".displayTimeContainer") as HTMLDivElement;
+import { timerControls } from "./index";
 
 // Adds clickability to the hamburger menu
 menu.addEventListener('click', (e) => {
@@ -8,7 +9,7 @@ menu.addEventListener('click', (e) => {
 
 // If the mobile view is displayed and you click outside of the timer controls, then hide them (the menu)
 timerContainer.addEventListener('click', e => {
-    if (window.innerWidth <= 600 && ![...timerControls.classList].includes("hidden") && e.target.dataset.method !== 'stop') {
+    if (window.innerWidth <= 600 && ![...timerControls.classList].includes("hidden") && (e.target as HTMLButtonElement).dataset.method !== 'stop') {
         timerControls.classList.add('hidden');
     }
 })
