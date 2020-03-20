@@ -1,6 +1,5 @@
-export const menu = document.querySelector(".menu") as HTMLDivElement;
-export const timerContainer = document.querySelector(".displayTimeContainer") as HTMLDivElement;
-import { timerControls } from "./index";
+const menu = document.querySelector(".menu") as HTMLDivElement;
+const timerContainer = document.querySelector(".displayTimeContainer") as HTMLDivElement;
 
 // Adds clickability to the hamburger menu
 menu.addEventListener('click', (e) => {

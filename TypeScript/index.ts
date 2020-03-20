@@ -11,7 +11,7 @@ const customTimeButton = document.querySelector(".custom-time-button") as HTMLBu
 const customTimeInput = document.querySelector('.custom-time-input') as HTMLInputElement;
 const customTimeForm = document.querySelector('.customTimeForm') as HTMLFormElement;
 const voiceRecognitionButton = document.querySelector(".voiceRecognitionButton") as HTMLButtonElement;
-export const timerControls = document.querySelector(".timerControls") as HTMLDivElement; // The timer container holding all preset timer value buttons
+const timerControls = document.querySelector(".timerControls") as HTMLDivElement; // The timer container holding all preset timer value buttons
 
 // Runs timer, and displays timer duration
 function timer(seconds: number){
@@ -156,10 +156,8 @@ window.addEventListener('resize', () => window.innerWidth > 500 && timerControls
 
 // =============================== SPEECH RECOGNITION FUNCTIONALITY =============================== //
 
-declare global {
-    interface Window {
-        webkitSpeechRecognition: any;
-    }
+interface Window {
+    webkitSpeechRecognition: any;
 }
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
