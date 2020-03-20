@@ -1,7 +1,7 @@
 # JavaScriptTimerAndAlarm
 Deployed Version: https://javascript-voice-timer.netlify.com
 
-<b>Description:</b> This application is a voice activated timer built with the bare bone basics of HTML, CSS, and vanilla JavaScript.
+<b>Description:</b> This application is a voice activated timer built with the bare bone basics of HTML, CSS, and TypeScript.
 
 <b>How it works:</b> This project was my first experience using the Google Chrome's `Speech Recognition` functionality. Building on top of a standard timer application, I incorporated the `Speech Recognition` functionality to listen to your command, and operate if the command matches one it is familiar with.
 
