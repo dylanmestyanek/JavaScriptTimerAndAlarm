@@ -1,6 +1,6 @@
-export const menu = document.querySelector(".menu");
-export const timerContainer = document.querySelector(".displayTimeContainer");
-import { timerControls } from "./index";
+"use strict";
+const menu = document.querySelector(".menu");
+const timerContainer = document.querySelector(".displayTimeContainer");
 // Adds clickability to the hamburger menu
 menu.addEventListener('click', (e) => {
     timerControls.classList.toggle('hidden');
