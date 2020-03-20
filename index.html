@@ -29,7 +29,7 @@
           <button data-time="3600" class="timerButton" title="60 Minute Timer">Lunch Break</button>
           <button class="timerButton voiceRecognitionButton">Voice Control</button>
           <button class="help-button" title="Learn how it works"> Help </button>
-          <form name="customTimeForm" id="custom" autocomplete="off">
+          <form id="custom" class="customTimeForm" autocomplete="off">
             <input type="text" name="minutes" placeholder="Enter Minutes" class="custom-time-input">
             <div class="custom-time-button"><p>Start</p></div>
           </form>
@@ -85,8 +85,8 @@
     </div>
     <!-- Modal End -->
 
-  <script src="./JavaScript/index.js"></script>
-  <script src="./JavaScript/modal.js"></script>
-  <script src="./JavaScript/menu.js"></script>
+  <script src="./JavaScript/index.js" type="module"></script>
+  <script src="./JavaScript/modal.js" type="module"></script>
+  <script src="./JavaScript/menu.js" type="module"></script>
 </body>
 </html>
